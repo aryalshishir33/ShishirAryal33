@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* DEFAULT DARK THEME */
+        /* START IN DARK MODE BY DEFAULT */
         :root {
             --bg: #020617;
             --text: #f1f5f9;
@@ -61,43 +61,57 @@
         .section-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; text-align: center; margin-bottom: 4rem; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 20px auto; }
 
-        /* Bio (Kept concise as requested) */
+        /* Bio Section */
         .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; padding: 100px 0; }
         .about-content h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 2rem; }
         .about-content p { font-size: 1.2rem; opacity: 0.9; text-align: justify; }
-        .image-box { border-radius: 50px; overflow: hidden; background: var(--secondary-bg); aspect-ratio: 4/5; border: 1px solid var(--border); }
+        
+        .image-box { 
+            border-radius: 50px; 
+            overflow: hidden; 
+            background: var(--secondary-bg); 
+            aspect-ratio: 4/5; 
+            border: 1px solid var(--border); 
+            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+        }
         .image-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Education - DOUBLED CONTENT */
+        /* Education Card */
         .edu-wrapper { padding: 80px 0; background: var(--secondary-bg); border-radius: 80px; margin: 40px 0; }
         .edu-card { background: var(--bg); padding: 5rem; border-radius: 50px; margin-bottom: 4rem; border: 1px solid var(--border); }
         .edu-card h3 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--accent); margin-bottom: 1.5rem; }
-        .edu-card p { font-size: 1.2rem; margin-bottom: 1.5rem; }
 
-        /* Professional (SAR & Associates) - DOUBLED CONTENT */
+        /* Professional (SAR & Associates) */
         .firm-highlight { text-align: center; padding: 60px 0; }
         .firm-name { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent); margin-bottom: 1.5rem; }
         .exp-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin: 3rem 0; }
-        .exp-card { padding: 4rem; background: var(--bg); border-radius: 50px; border: 1px solid var(--border); text-align: left; display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start; }
+        .exp-card { padding: 4rem; background: var(--bg); border-radius: 50px; border: 1px solid var(--border); display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start; }
         .exp-card i { font-size: 3rem; color: var(--accent); }
         .exp-card h4 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; }
 
-        /* Articles Section - DOUBLED CONTENT */
-        .articles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
-        .article-card { background: var(--secondary-bg); padding: 4rem; border-radius: 50px; border: 1px solid var(--border); }
-        .btn-article { display: inline-block; margin-top: 2rem; padding: 1rem 2rem; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 50px; font-weight: 800; }
-
         /* Podcast Section */
-        .podcast-banner { background: linear-gradient(135deg, #1e1b4b 0%, #000 100%); color: white; padding: 6rem; border-radius: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; border: 1px solid var(--accent); }
-        .podcast-video-placeholder { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 30px; display: flex; align-items: center; justify-content: center; }
+        .podcast-banner { 
+            background: linear-gradient(135deg, #1e1b4b 0%, #000 100%); 
+            color: white; padding: 6rem; border-radius: 60px; 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; 
+            border: 1px solid var(--accent);
+            margin: 60px 0;
+        }
+        .podcast-video-placeholder { 
+            width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 30px; 
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        .podcast-video-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+        .btn-podcast { background: var(--accent); color: #000; padding: 1.2rem 2.5rem; border-radius: 100px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .btn-podcast:hover { background: #fff; transform: translateY(-5px); }
 
-        /* Trekking - DOUBLED CONTENT */
+        /* Trekking Rows */
         .trek-row { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 8rem; }
         .trek-photo { width: 100%; aspect-ratio: 16/10; background: var(--secondary-bg); border-radius: 40px; overflow: hidden; border: 1px solid var(--border); }
         .trek-photo img { width: 100%; height: 100%; object-fit: cover; }
         .trek-text h3 { font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-bottom: 2rem; color: var(--accent); }
 
-        .dream-banner { background: #000; color: white; padding: 8rem; border-radius: 80px; text-align: center; margin-top: 5rem; border: 1px solid var(--accent); }
+        .dream-banner { background: #000; color: white; padding: 8rem; border-radius: 80px; text-align: center; margin-top: 5rem; border: 2px solid var(--accent); }
 
         /* Footer */
         footer { padding: 120px 0 60px; text-align: center; border-top: 1px solid var(--border); }
@@ -106,7 +120,7 @@
         .social-icons a:hover { background: var(--accent); color: white; transform: translateY(-10px); }
 
         @media (max-width: 900px) {
-            .about-grid, .trek-row, .podcast-banner, .articles-grid, .exp-card { grid-template-columns: 1fr; text-align: center; }
+            .about-grid, .trek-row, .podcast-banner, .exp-card { grid-template-columns: 1fr; text-align: center; }
             .trek-photo, .podcast-video-placeholder { order: -1; }
             .exp-card { justify-items: center; }
         }
@@ -121,8 +135,8 @@
                 <li><a href="#about">Bio</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#professional">Exposure</a></li>
-                <li><a href="#articles">Articles</a></li>
                 <li><a href="#resilience">Resilience</a></li>
+                <li><a href="#podcast">Podcast</a></li>
             </ul>
             <button onclick="toggleTheme()" id="theme-btn" style="background:none; border:none; cursor:pointer; font-size: 1.4rem; color: var(--text);">
                 <i class="fa-solid fa-sun"></i>
@@ -136,18 +150,19 @@
     </header>
 
     <main class="container">
-        <!-- Biography (Intro - Kept Normal) -->
+        <!-- Biography -->
         <section id="about" class="about-grid">
             <div class="about-content">
                 <h2>A Masterclass in Career Transformation</h2>
                 <p>Originally captivated by the innovative potential of Information Technology, a pivotal counseling session redirected my analytical mindset toward the financial architecture of Nepal. Today, I am dedicated to bridging my technical curiosity with financial rigor, believing that the future of business leadership belongs to those who master the "CA Attitude"—that unique blend of precise knowledge and professional integrity.</p>
             </div>
             <div class="image-box">
-                <img src="profile.jpg" alt="Shishir Aryal Profile Portrait">
+                <!-- BIO PHOTO -->
+                <img src="profile.jpg" alt="Shishir Aryal">
             </div>
         </section>
 
-        <!-- Education (Doubled Content) -->
+        <!-- Education (Doubled Detail) -->
         <section id="education">
             <h2 class="section-title">The Academic Odyssey</h2>
             <div class="edu-wrapper">
@@ -175,13 +190,13 @@
             </div>
         </section>
 
-        <!-- Professional (Doubled Content) -->
+        <!-- Professional (SAR & Associates) -->
         <section id="professional">
             <h2 class="section-title">Professional Exposure</h2>
             <div class="firm-highlight">
                 <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; opacity: 0.6;">Training at</p>
                 <h3 class="firm-name">SAR & Associates</h3>
-                <p style="max-width: 900px; margin: 0 auto; font-size: 1.3rem;">I have spent my professional tenure at SAR & Associates deep-diving into the financial engines of Nepal, ensuring transparency and growth for the nation's most critical organizations.</p>
+                <p style="max-width: 900px; margin: 0 auto; font-size: 1.3rem;">I have spent my professional tenure at <strong>SAR & Associates</strong> deep-diving into the financial engines of Nepal, ensuring transparency and growth for the nation's most critical organizations.</p>
             </div>
             
             <div class="exp-grid">
@@ -209,81 +224,79 @@
             </div>
         </section>
 
-        <!-- Articles (Doubled Content) -->
-        <section id="articles">
-            <h2 class="section-title">Thought Leadership</h2>
-            <div class="articles-grid">
-                <div class="article-card">
-                    <h4>The Digital Leap of Nepalese Banking</h4>
-                    <p>A detailed 3,000-word analysis of how digital wallets and blockchain-inspired ledgers are forcing traditional banks to evolve. I discuss the regulatory challenges and the need for a new "Tech-Audit" framework for CA professionals.</p>
-                    <a href="#" class="btn-article">Download Article</a>
-                </div>
-                <div class="article-card">
-                    <h4>Maintaining Audit Quality in Volatile Markets</h4>
-                    <p>A research-based insight into maintaining professional skepticism during economic shifts. I explore the psychological barriers that enthusiasts face during field-work and how to overcome them to ensure reporting accuracy.</p>
-                    <a href="#" class="btn-article">Download File</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Podcast Placeholder -->
-        <section id="podcast" style="padding: 60px 0;">
-            <div class="podcast-banner">
-                <div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent);">Dialogue on Strategy</h3>
-                    <p style="font-size: 1.2rem; line-height: 1.8;">In this featured episode, I share my journey from a government school in Baglung to the Top 3 Rank in Nepal. We discuss the mindset required to master the CA curriculum and the future of banking leadership.</p>
-                    <a href="#" class="btn-podcast" style="background:var(--accent); color:#000; padding: 1.2rem 2.5rem; border-radius:100px; text-decoration:none; font-weight:800; display:inline-block; margin-top:20px;">Listen to Podcast</a>
-                </div>
-                <div class="podcast-video-placeholder">
-                    <i class="fa-solid fa-microphone-lines fa-4x" style="color:var(--accent)"></i>
-                </div>
-            </div>
-        </section>
-
-        <!-- Resilience (Doubled Content) -->
+        <!-- Resilience & Trekking (Doubled Detail) -->
         <section id="resilience">
-            <h2 class="section-title">Personal Resilience & Perspective</h2>
+            <h2 class="section-title">Personal Resilience</h2>
             
+            <!-- Langtang -->
             <div class="trek-row">
                 <div class="trek-text">
                     <h3>Langtang Valley Trek</h3>
-                    <p>Traversing the Langtang region was more than a trek; it was a meditation on recovery. After the earthquake, the valley's resilience mirrored my own professional journey. Standing at Kyanjin Ri (4,773m), I realized that every uphill climb—whether in a career or on a mountain—requires a steady rhythm and a clear destination. This experience provides the mental clarity I use to solve complex financial puzzles.</p>
+                    <p>Traversing the Langtang region was more than a trek; it was a meditation on recovery. After the earthquake, the valley's resilience mirrored my own professional journey. Standing at Kyanjin Ri (4,773m), I realized that every uphill climb requires a steady rhythm and a clear destination.</p>
+                    <p>Every step in the alpine terrain taught me about oxygen management—just as I manage mental energy during three-hour professional exams. It is about pacing, not just speed.</p>
                 </div>
-                <div class="trek-photo"><img src="langtang.jpg" alt="Langtang Placeholder"></div>
+                <div class="trek-photo"><img src="langtang.jpg" alt="Langtang"></div>
             </div>
 
+            <!-- Tsho Rolpa -->
             <div class="trek-row">
-                <div class="trek-photo"><img src="tsho-rolpa.jpg" alt="Tsho Rolpa Placeholder"></div>
+                <div class="trek-photo"><img src="tsho-rolpa.jpg" alt="Tsho Rolpa"></div>
                 <div class="trek-text">
                     <h3>Tsho Rolpa Glacier Trek</h3>
-                    <p>Navigating the route to one of Nepal’s highest glacial lakes (4,580m) was a masterclass in risk management. The rugged terrain of the Rolwaling Valley demands extreme focus and physical preparation. The thin air and the sheer silence of the glacier taught me the importance of "Composure under Pressure"—a skill I apply every time I present a critical audit report to a board of directors.</p>
+                    <p>Navigating the route to one of Nepal’s highest glacial lakes (4,580m) was a masterclass in risk management. The rugged terrain of the Rolwaling Valley demands extreme focus and physical preparation. The thin air and the sheer silence taught me the importance of "Composure under Pressure."</p>
+                    <p>Standing before the turquoise waters, you realize that nature doesn't negotiate; you must adapt. This adaptability is my core strength in the ever-changing tax laws of our country.</p>
                 </div>
             </div>
 
+            <!-- Dhorpatan -->
             <div class="trek-row">
                 <div class="trek-text">
                     <h3>Dhorpatan Hunting Reserve</h3>
-                    <p>Exploring the unique high-altitude plateaus of Dhorpatan allowed me to find perspective away from the ledger. The vast wilderness and the strategic planning required to navigate this remote hunting reserve reinforced my belief that a leader must occasionally step away from the noise to find clarity. It is in these silent heights that I develop my most creative financial strategies.</p>
+                    <p>Exploring the unique high-altitude plateaus of Dhorpatan allowed me to find perspective away from the ledger. The vast wilderness and the strategic planning required to navigate this remote reserve reinforced my belief that a leader must find clarity in silence.</p>
+                    <p>The vast grasslands taught me about the "Big Picture"—seeing the horizon before diving into the microscopic details of a balance sheet.</p>
                 </div>
-                <div class="trek-photo"><img src="dhorpatan.jpg" alt="Dhorpatan Placeholder"></div>
+                <div class="trek-photo"><img src="dhorpatan.jpg" alt="Dhorpatan"></div>
             </div>
 
+            <!-- Chaurikharka -->
             <div class="trek-row">
-                <div class="trek-photo"><img src="chaurikharka.jpg" alt="Chaurikharka Placeholder"></div>
+                <div class="trek-photo"><img src="chaurikharka.jpg" alt="Chaurikharka"></div>
                 <div class="trek-text">
                     <h3>Chaurikharka Expedition</h3>
-                    <p>Entering the heart of the Khumbu region through Chaurikharka allowed me to witness the sheer grandeur of Everest. This journey was about stamina—maintaining a high performance over long periods of time. The thin air of the Everest region is a metaphor for the competitive top-tier of the CA profession; only those who prepare their lungs and their minds can survive at the summit.</p>
+                    <p>Entering the heart of the Khumbu region allowed me to witness the sheer grandeur of Everest. This journey was about stamina—maintaining high performance over long periods. The thin air of the Everest region is a metaphor for the competitive top-tier of the CA profession.</p>
+                    <p>It taught me that reaching the base is just the beginning. The goal is always higher, and the preparation must be deeper than the climb itself.</p>
                 </div>
             </div>
 
             <div style="text-align: center; padding: 60px; background: var(--secondary-bg); border-radius: 50px; border: 1px solid var(--border); margin-bottom: 5rem;">
-                <p style="font-size: 1.3rem; font-weight: 600;">My spirit of exploration has also led me through the arid, desert-like beauty of <strong>Mustang</strong>, the serene waters of <strong>Pokhara</strong>, the birthplace of light in <strong>Lumbini</strong>, and the ancient heritage-rich slopes of <strong>Ghandruk</strong>. Each destination adds a layer to my character, making me a more empathetic and well-rounded professional.</p>
+                <p style="font-size: 1.3rem; font-weight: 600;">I have also explored the beauty of <strong>Mustang, Pokhara, Lumbini, and Ghandruk</strong>. Each destination adds a layer to my character, making me a well-rounded professional.</p>
             </div>
 
             <div class="dream-banner">
-                <i class="fa-solid fa-mountain-sun fa-5x" style="color: var(--accent); margin-bottom: 2rem;"></i>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 2rem;">The Ultimate Dream: Everest Base Camp</h2>
-                <p style="max-width: 900px; margin: 0 auto; font-size: 1.4rem; opacity: 0.9;">Reaching the Everest Base Camp (EBC) represents the absolute pinnacle of my resilience. It is the ultimate pilgrimage for any trekker, symbolizing the intersection of human ambition and natural grandeur. To stand at the foot of the world's highest peak would be the ultimate validation of my philosophy: that through persistence, discipline, and strategic effort, no summit is out of reach.</p>
+                <i class="fa-solid fa-mountain-summit fa-5x" style="color: var(--accent); margin-bottom: 2rem;"></i>
+                <h2>Ultimate Dream: Everest Base Camp</h2>
+                <p>To stand at the foot of the world's highest peak would be the ultimate validation of my philosophy: through persistence and strategic effort, no summit is out of reach.</p>
+            </div>
+        </section>
+
+        <!-- Podcast Section (WITH YOUR LINK) -->
+        <section id="podcast" class="podcast-section">
+            <h2 class="section-title">Featured Podcast</h2>
+            <div class="podcast-banner">
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--accent);">Dialogue on Strategy</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.8;">In this episode, I share my journey from Baglung to becoming a rank holder, and my perspective on the future of finance leadership in Nepal.</p>
+                    
+                    <!-- REPLACE THE LINK BELOW WITH YOUR ACTUAL YOUTUBE/PODCAST URL -->
+                    <a href="https://youtu.be/JwlPTJAgg7M" class="btn-podcast" target="_blank">
+                        <i class="fa-solid fa-play"></i> Watch Episode
+                    </a>
+                </div>
+                <div class="podcast-video-placeholder">
+                    <!-- Replace src with a podcast thumbnail if you have one -->
+                    <img src="profile.jpg" alt="Podcast Preview" style="opacity: 0.4;">
+                    <i class="fa-solid fa-microphone-lines fa-4x" style="position: absolute; color: var(--accent);"></i>
+                </div>
             </div>
         </section>
     </main>
@@ -298,7 +311,7 @@
                 <a href="https://www.instagram.com/shishiraryal33/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             </div>
             <p style="font-weight: 800; color: var(--accent); font-size: 1.5rem;">aryalshisir55@gmail.com</p>
-            <p style="opacity: 0.4; font-size: 0.85rem; margin-top: 60px;">&copy; 2026 SHISHIR ARYAL. KATHMANDU, NEPAL.</p>
+            <p style="opacity: 0.4; font-size: 0.85rem; margin-top: 60px; text-transform: uppercase;">&copy; 2026 SHISHIR ARYAL. KATHMANDU, NEPAL.</p>
         </div>
     </footer>
 
