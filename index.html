@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shishir Aryal | Professional Portfolio</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* START IN DARK MODE BY DEFAULT */
+        /* BASE THEME: DARK MODE BY DEFAULT */
         :root {
             --bg: #020617;
             --text: #f1f5f9;
@@ -18,6 +20,7 @@
             --accent: #b59344; 
         }
 
+        /* LIGHT MODE OVERRIDE */
         [data-theme="light"] {
             --bg: #ffffff;
             --text: #1e293b;
@@ -31,7 +34,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            transition: 0.4s;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             line-height: 2;
         }
 
@@ -48,9 +51,10 @@
         nav .container { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; font-family: 'Playfair Display', serif; }
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
 
-        /* Hero */
+        /* Hero Section */
         .hero { padding: 220px 0 100px; text-align: center; }
         .hero h1 { 
             font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 8vw, 6rem); 
@@ -58,71 +62,72 @@
         }
         .hero .subtitle { font-size: 1.1rem; color: var(--accent); font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
 
+        /* Section Headings */
         .section-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; text-align: center; margin-bottom: 4rem; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 20px auto; }
 
-        /* Bio Section */
-        .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; padding: 100px 0; }
+        /* Bio Grid */
+        .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; padding: 80px 0; }
         .about-content h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 2rem; }
         .about-content p { font-size: 1.2rem; opacity: 0.9; text-align: justify; }
-        
-        .image-box { 
-            border-radius: 50px; 
-            overflow: hidden; 
-            background: var(--secondary-bg); 
-            aspect-ratio: 4/5; 
-            border: 1px solid var(--border); 
-            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
-        }
+        .image-box { border-radius: 50px; overflow: hidden; background: var(--secondary-bg); aspect-ratio: 4/5; border: 1px solid var(--border); box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
         .image-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Education Card */
+        /* Education Narrative */
         .edu-wrapper { padding: 80px 0; background: var(--secondary-bg); border-radius: 80px; margin: 40px 0; }
-        .edu-card { background: var(--bg); padding: 5rem; border-radius: 50px; margin-bottom: 4rem; border: 1px solid var(--border); }
-        .edu-card h3 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--accent); margin-bottom: 1.5rem; }
+        .edu-card { background: var(--bg); padding: 4.5rem; border-radius: 50px; margin-bottom: 3rem; border: 1px solid var(--border); transition: 0.3s; }
+        .edu-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .edu-card h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--accent); margin-bottom: 1.5rem; }
 
-        /* Professional (SAR & Associates) */
+        /* Professional Exposure */
         .firm-highlight { text-align: center; padding: 60px 0; }
-        .firm-name { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent); margin-bottom: 1.5rem; }
-        .exp-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin: 3rem 0; }
-        .exp-card { padding: 4rem; background: var(--bg); border-radius: 50px; border: 1px solid var(--border); display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start; }
-        .exp-card i { font-size: 3rem; color: var(--accent); }
+        .firm-name { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--accent); margin-bottom: 1.5rem; }
+        .exp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin: 3rem 0; }
+        .exp-card { padding: 3.5rem; background: var(--bg); border-radius: 40px; border: 1px solid var(--border); text-align: center; transition: 0.4s; }
+        .exp-card i { font-size: 3.5rem; color: var(--accent); margin-bottom: 2rem; }
         .exp-card h4 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem; }
 
-        /* Podcast Section */
-        .podcast-banner { 
-            background: linear-gradient(135deg, #1e1b4b 0%, #000 100%); 
-            color: white; padding: 6rem; border-radius: 60px; 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; 
-            border: 1px solid var(--accent);
-            margin: 60px 0;
-        }
-        .podcast-video-placeholder { 
-            width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 30px; 
-            display: flex; align-items: center; justify-content: center; overflow: hidden;
-        }
-        .podcast-video-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-        .btn-podcast { background: var(--accent); color: #000; padding: 1.2rem 2.5rem; border-radius: 100px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        .btn-podcast:hover { background: #fff; transform: translateY(-5px); }
+        /* Articles Modal Pop-up */
+        .article-card { background: var(--secondary-bg); padding: 4rem; border-radius: 50px; border: 1px solid var(--border); text-align: center; }
+        .btn-article { cursor: pointer; display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem; border: 2px solid var(--accent); color: var(--accent); text-decoration: none; border-radius: 100px; font-weight: 800; transition: 0.3s; background: transparent; }
+        .btn-article:hover { background: var(--accent); color: white; transform: scale(1.05); }
 
-        /* Trekking Rows */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(10px); }
+        .modal-content { background-color: var(--secondary-bg); margin: 2% auto; padding: 5rem; border: 1px solid var(--accent); width: 90%; max-width: 1000px; border-radius: 40px; max-height: 90vh; overflow-y: auto; position: relative; }
+        .close-modal { position: absolute; right: 40px; top: 30px; color: var(--text); font-size: 3rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .modal-body { color: var(--text); line-height: 1.8; text-align: justify; }
+        .modal-body h2 { font-family: 'Playfair Display', serif; color: var(--accent); margin-bottom: 2rem; font-size: 2.8rem; text-align: center; }
+        .modal-body h3 { font-family: 'Playfair Display', serif; color: var(--accent); margin: 2.5rem 0 1rem; border-bottom: 1px solid var(--border); font-size: 1.8rem; }
+
+        /* Side-by-Side Trekking Destinations */
         .trek-row { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 8rem; }
-        .trek-photo { width: 100%; aspect-ratio: 16/10; background: var(--secondary-bg); border-radius: 40px; overflow: hidden; border: 1px solid var(--border); }
-        .trek-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .trek-photo { width: 100%; aspect-ratio: 16/10; background: #000; border-radius: 40px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .trek-photo img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .trek-photo:hover img { transform: scale(1.05); }
         .trek-text h3 { font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-bottom: 2rem; color: var(--accent); }
 
-        .dream-banner { background: #000; color: white; padding: 8rem; border-radius: 80px; text-align: center; margin-top: 5rem; border: 2px solid var(--accent); }
+        /* Podcast & Dream Banner */
+        .podcast-banner { background: linear-gradient(135deg, #1e1b4b 0%, #020617 100%); color: white; padding: 6rem; border-radius: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; border: 1px solid var(--accent); margin: 60px 0; }
+        .podcast-video-placeholder { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 30px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; border: 1px solid var(--border); }
+        .podcast-video-placeholder img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
+        .btn-podcast { background: var(--accent); color: #000; padding: 1.2rem 2.5rem; border-radius: 100px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        
+        .dream-banner { background: #000; color: white; padding: 8rem; border-radius: 80px; text-align: center; margin-top: 5rem; border: 1px solid var(--accent); box-shadow: 0 0 50px rgba(181, 147, 68, 0.1); }
 
         /* Footer */
         footer { padding: 120px 0 60px; text-align: center; border-top: 1px solid var(--border); }
-        .social-icons { display: flex; justify-content: center; gap: 2rem; margin: 4rem 0; }
-        .social-icons a { width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--secondary-bg); color: var(--text); font-size: 1.8rem; border: 1px solid var(--border); text-decoration: none; transition: 0.3s; }
-        .social-icons a:hover { background: var(--accent); color: white; transform: translateY(-10px); }
+        .social-icons { display: flex; justify-content: center; gap: 2rem; margin: 4rem 0; flex-wrap: wrap; }
+        .social-icons a { 
+            width: 75px; height: 75px; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: var(--secondary-bg); color: var(--text); font-size: 2rem; transition: 0.4s;
+            text-decoration: none; border: 1px solid var(--border);
+        }
+        .social-icons a:hover { background: var(--accent); color: white; transform: translateY(-10px) rotate(5deg); }
 
         @media (max-width: 900px) {
-            .about-grid, .trek-row, .podcast-banner, .exp-card { grid-template-columns: 1fr; text-align: center; }
+            .about-grid, .trek-row, .podcast-banner, .articles-grid, .exp-card { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
             .trek-photo, .podcast-video-placeholder { order: -1; }
-            .exp-card { justify-items: center; }
+            .edu-card, .exp-card { padding: 2.5rem; }
         }
     </style>
 </head>
@@ -135,11 +140,11 @@
                 <li><a href="#about">Bio</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#professional">Exposure</a></li>
+                <li><a href="#articles">Articles</a></li>
                 <li><a href="#resilience">Resilience</a></li>
-                <li><a href="#podcast">Video</a></li>
             </ul>
-            <button onclick="toggleTheme()" id="theme-btn" style="background:none; border:none; cursor:pointer; font-size: 1.4rem; color: var(--text);">
-                <i class="fa-solid fa-sun"></i>
+            <button onclick="toggleTheme()" id="theme-btn" style="background:none; border:none; cursor:pointer; font-size: 1.5rem; color: var(--text);">
+                <i class="fa-solid fa-moon"></i>
             </button>
         </div>
     </nav>
@@ -150,172 +155,195 @@
     </header>
 
     <main class="container">
-        <!-- Biography -->
+        <!-- Section 1: Biography -->
         <section id="about" class="about-grid">
             <div class="about-content">
                 <h2>A Masterclass in Career Transformation</h2>
-                <p>Originally captivated by the innovative potential of Information Technology, a pivotal counseling session redirected my analytical mindset toward the financial architecture of Nepal. Today, I am dedicated to bridging my technical curiosity with financial rigor, believing that the future of business leadership belongs to those who master the "CA Attitude" that unique blend of precise knowledge and professional integrity.</p>
+                <p>My transition into the world of Chartered Accountancy was a defining moment of professional realization. Originally, I was deeply captivated by the innovative potential of Information Technology, spending my early years exploring the logic and architectural potential of digital systems. However, a pivotal academic counseling session with my mentor became the spark that redirected my analytical mindset toward the financial architecture of Nepal.</p>
+                <p>What fascinated me most about the CA profession was the gravity of its leadership. Discovering that the most successful and visionary CEOs of top-tier banks share the CA background gave me a clear roadmap. To me, being a CA is more than a certification; it is an "attitude"—a unique blend of intellectual command, professional integrity, and the depth of knowledge required to lead at the highest levels of global business.</p>
+                <p>Today, I balance my technical curiosity with financial rigor, believing that the future of business leadership belongs to those who can bridge the gap between complex data and strategic financial action.</p>
             </div>
             <div class="image-box">
-                <!-- BIO PHOTO -->
-                <img src="shishir.jpg" alt="Shishir Aryal">
+                <img src="profile.jpg" alt="Shishir Aryal">
             </div>
         </section>
 
-        <!-- Education (Doubled Detail) -->
+        <!-- Section 2: Detailed Education -->
         <section id="education">
             <h2 class="section-title">The Academic Odyssey</h2>
             <div class="edu-wrapper">
                 <div class="edu-card">
                     <h3>ICAN Chartered Accountancy (CAP II)</h3>
-                    <p>Securing the <strong>All Nepal Rank 3</strong> in the CAP II examinations was not merely an academic success; it was a grueling test of endurance. This phase involved mastering over 8,000 pages of technical curriculum, ranging from the intricacies of NFRS (Nepal Financial Reporting Standards) to complex Corporate Tax structures. This rank solidified my reputation as a strategist capable of high-level conceptual clarity under immense national pressure.</p>
-                    <p>The journey required a monastic level of discipline studying 14 hours a day to decode the nuances of Audit Assurance and Financial Management. This experience forged my professional identity, teaching me that accuracy is the baseline, but strategic insight is what creates real value in the financial world.</p>
+                    <p>Securing the prestigious <strong>All Nepal Rank 3</strong> in the CAP II examinations remains a definitive milestone in my journey. This achievement was the result of a deliberate, high-intensity strategy designed to master the vast complexities of Financial Reporting, Audit Assurance, and Corporate Laws. It taught me that excellence is not an act, but a habit of discipline, and it solidified my standing as a top-tier professional aspirant in Nepal.</p>
+                    <p>Mastering over 8,000 pages of technical curriculum required a monastic level of discipline—studying 14 hours a day to decode the nuances of Nepalese accounting standards. This phase forged my professional identity, teaching me that strategic insight is what creates real value in the boardroom.</p>
                 </div>
 
                 <div class="edu-card">
                     <h3>Bachelor in Business Studies (BBS)</h3>
-                    <p>Managing my <strong>3rd Year</strong> at Tribhuvan University alongside the CA journey has provided me with a unique dual-lens perspective. While CA provides technical depth, BBS offers a broader look at organizational behavior, macro-economics, and the psychological pillars of business management. Maintaining high marks in my 1st and 2nd years proved my ability to balance two demanding academic paths simultaneously.</p>
-                    <p>This academic synergy allows me to approach financial problems not just as an enthusiast, but as a management professional. I have focused my research during these years on the liquidity challenges of Nepalese banks and the impact of digital transformation on traditional accounting cycles.</p>
+                    <p>Parallel to my professional pursuit, I am currently navigating my <strong>3rd Year</strong> at Tribhuvan University. Managing a university degree alongside the rigorous CA curriculum has been a lesson in extreme time management. By maintaining high academic marks across my 1st and 2nd years, I have gained a broader management perspective that allows me to view financial problems through the lens of macro-economics and organizational psychology.</p>
+                    <p>This dual-academic path allows me to approach finance not just as a technician, but as a holistic management professional. I have dedicated my university research to understanding liquidity challenges and digital transformation within the traditional accounting cycles of Nepal.</p>
                 </div>
 
                 <div class="edu-card">
                     <h3>GoldenGate International College, Kathmandu</h3>
-                    <p>At GoldenGate, I secured <strong>A+ marks</strong> in +2 Management, which served as my gateway into the professional elite. The college's high-pressure environment served as a laboratory where I first experimented with advanced time-management techniques and analytical modeling. It was here that my passion for finance surpassed my interest in IT, as I realized that numbers tell the most important stories in any economy.</p>
+                    <p>My time at GoldenGate for +2 Management was where my competitive edge was first sharpened. Securing <strong>A+ marks</strong> in a high-pressure environment helped me realize my aptitude for analytical thinking. It was here that my passion for finance surpassed my interest in IT, as I realized that financial data tells the most important stories in any developing economy.</p>
                 </div>
 
                 <div class="edu-card">
                     <h3>Shree Prabha Secondary School, Baglung</h3>
-                    <p>Coming from a government-led school in Baglung, my <strong>A+ in SEE</strong> is a testament to the fact that ambition is the greatest equalizer. Lacking the high-end resources of urban private schools, I relied on pure intellectual curiosity and self-study. This chapter taught me the value of "Humble Grit" the ability to work harder than everyone else to achieve national-level recognition.</p>
+                    <p>I am a proud product of a government-led institution in Baglung. This foundational chapter was crucial; it taught me that excellence is independent of external resources. By securing an <strong>A+ in SEE</strong>, I proved that a relentless work ethic can overcome any systemic limitation. This experience continues to drive my belief that character is forged in the ability to rise from humble beginnings to national recognition.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Professional (SAR & Associates) -->
+        <!-- Section 3: Professional Exposure -->
         <section id="professional">
             <h2 class="section-title">Professional Exposure</h2>
             <div class="firm-highlight">
                 <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; opacity: 0.6;">Training at</p>
                 <h3 class="firm-name">SAR & Associates</h3>
-                <p style="max-width: 900px; margin: 0 auto; font-size: 1.3rem;">I have spent my professional tenure at <strong>SAR & Associates</strong> deep-diving into the financial engines of Nepal, ensuring transparency and growth for the nation's most critical organizations.</p>
+                <p style="max-width: 900px; margin: 0 auto; font-size: 1.3rem;">I have spent my professional articleship deep-diving into the financial engines of Nepal, ensuring transparency and growth for the nation's most critical organizations.</p>
             </div>
             
             <div class="exp-grid">
                 <div class="exp-card">
                     <i class="fa-solid fa-building-columns"></i>
-                    <div>
-                        <h4>Banking & Financial Institutions</h4>
-                        <p>I have analyzed the risk-weighted assets and internal control frameworks of prominent Nepalese banks. My work involved testing the effectiveness of core banking systems and ensuring that every transaction aligns with Nepal Rastra Bank (NRB) directives. This exposure has given me a front-row seat to how the nation’s liquidity is managed and protected.</p>
-                    </div>
+                    <h4>Banking & Financial Institutions</h4>
+                    <p>Direct exposure to risk-weighted assets and internal control frameworks of prominent Nepalese banks. I have analyzed risk management systems and ensured adherence to stringent NRB directives during statutory audits.</p>
                 </div>
                 <div class="exp-card">
                     <i class="fa-solid fa-landmark"></i>
-                    <div>
-                        <h4>Government & Public Governance</h4>
-                        <p>My work with government clients focused on fiscal accountability. I have audited public sector entities to ensure that taxpayer funds are utilized with maximum efficiency and absolute constitutional compliance. This role requires an unwavering commitment to integrity and a deep understanding of the public procurement laws of Nepal.</p>
-                    </div>
+                    <h4>Government Governance</h4>
+                    <p>Conducting audits for public sector entities with a focus on fiscal accountability. I ensure that public funds are managed with 100% transparency and absolute constitutional compliance under Nepalese law.</p>
                 </div>
                 <div class="exp-card">
-                    <i class="fa-solid fa-earth-americas"></i>
-                    <div>
-                        <h4>INGOs & International Reporting</h4>
-                        <p>Working with International NGOs requires a delicate balance of fund efficiency and donor compliance. I ensure that international aid is accounted for with 100% accuracy, providing assurance to global donors that their contributions are creating the intended social impact while meeting international accounting standards.</p>
-                    </div>
+                    <i class="fa-solid fa-earth-asia"></i>
+                    <h4>International NGOs</h4>
+                    <p>Assurance services for INGOs require a balance of fund efficiency and donor compliance. My work ensures that social impact is backed by financial clarity and reporting accuracy meeting international standards.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Resilience & Trekking (Doubled Detail) -->
+        <!-- Section 4: Articles Section (WITH POPUP) -->
+        <section id="articles">
+            <h2 class="section-title">Thought Leadership</h2>
+            <div class="article-card">
+                <h4>Cybersecurity and IT Risk Management in BAFI's and Insurance Company in Nepal</h4>
+                <p>A comprehensive comparative regulatory analysis of the digital governance landscape across Nepal's financial and insurance sectors.</p>
+                <button class="btn-article" onclick="openModal()">Read Full Article</button>
+            </div>
+        </section>
+
+        <!-- MODAL POPUP FOR ARTICLE -->
+        <div id="articleModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <div class="modal-body">
+                    <h2>Cybersecurity and IT Risk Management in BAFI's and Insurance Company in Nepal</h2>
+                    <p><em>Comparative Regulatory Analysis of Cybersecurity, Artificial Intelligence, and Information Technology Guidelines</em></p>
+                    
+                    <h3>I. Information Technology: Foundational Infrastructure</h3>
+                    <p>The financial landscape of Nepal is undergoing a profound digital transformation. As the central regulator for the banking sector, Nepal Rastra Bank (NRB) has established a robust hierarchy of guidelines. Simultaneously, the Nepal Insurance Authority (NIA) has introduced specialized directives emphasizing transparency and digital policy issuance.</p>
+                    <p><strong>Governance:</strong> NRB mandates Board-approved IT strategies with annual reviews. The strategic planning process is expected to cover both long-term and short-term horizons. In the insurance sector, transparency is key, with NIA requiring companies to publish vision, mission, and management profiles on their websites.</p>
+                    <p><strong>Outsourcing:</strong> NRB holds the Board ultimately accountable for outsourcing. NIA requires cloud data centers to be registered within Nepal to ensure data sovereignty and domestic accountability.</p>
+
+                    <h3>II. Cybersecurity and Cyber Resilience</h3>
+                    <p>Simple security is no longer enough. NRB’s Cyber Resilience Guidelines 2023 represent a shift toward "Resilience"—the ability to anticipate, withstand, and rapidly recover. The framework establishes a strict <strong>2-hour Recovery Time Objective (RTO)</strong> for resuming critical operations.</p>
+                    <p><strong>Five Pillars:</strong> The framework is built on Governance, Identification, Protection, Detection, and Response. Institutions must be able to complete settlement by the end of the day, even in extreme scenarios. NIA further mandates "Cyber Insurance" to minimize residual risks within the institution.</p>
+
+                    <h3>III. Artificial Intelligence: Ethical Governance</h3>
+                    <p>AI is the most recent frontier. The draft NRB AI Guidelines (Dec 2025) and National AI Policy 2082 prioritize citizen rights. Systems are classified as "High-Risk" or "Not High-Risk" depending on their potential financial harm or impact on fundamental rights.</p>
+                    <p><strong>Transparency:</strong> AI systems must be "explainable." AI-generated content must be clearly labeled, and customers must be informed whenever AI is used in decisions that affect them, ensuring the decision-making process is understandable to stakeholders.</p>
+
+                    <h3>Conclusion</h3>
+                    <p>Toward a Harmonized Resilience Ecosystem: The path forward requires a unified approach where IT Governance provides the infrastructure, Cybersecurity ensures resilience, and AI Governance establishes ethical parameters. The goal is a financial system that is secure, fair, transparent, and resilient.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Resilience & Trekking -->
         <section id="resilience">
-            <h2 class="section-title">Personal Resilience</h2>
+            <h2 class="section-title">Personal Resilience & Perspectives</h2>
             
-            <!-- Langtang -->
             <div class="trek-row">
                 <div class="trek-text">
                     <h3>Langtang Valley Trek</h3>
-                    <p>Traversing the Langtang region was more than a trek; it was a meditation on recovery. After the earthquake, the valley's resilience mirrored my own professional journey. Standing at Kyanjin Ri (4,773m), I realized that every uphill climb requires a steady rhythm and a clear destination.</p>
-                    <p>Every step in the alpine terrain taught me about oxygen management just as I manage mental energy during three-hour professional exams. It is about pacing, not just speed.</p>
+                    <p>Traversing the 'Valley of Glaciers' was more than a trek; it was a meditation on recovery. After the earthquake, the valley's resilience mirrored my own professional journey. Standing at Kyanjin Ri, I realized that every uphill climb—whether in a career or on a mountain—requires a steady rhythm and a clear destination. This experience provides the mental clarity I use to solve complex financial puzzles.</p>
                 </div>
-                <div class="trek-photo"><img src="langtang.jpg" alt="Langtang"></div>
+                <div class="trek-photo"><img src="langtang.jpg" alt="Langtang Expedition"></div>
             </div>
 
-            <!-- Tsho Rolpa -->
             <div class="trek-row">
-                <div class="trek-photo"><img src="tsho-rolpa.jpg" alt="Tsho Rolpa"></div>
+                <div class="trek-photo"><img src="tsho-rolpa.jpg" alt="Tsho Rolpa Expedition"></div>
                 <div class="trek-text">
                     <h3>Tsho Rolpa Glacier Trek</h3>
-                    <p>Navigating the route to one of Nepal’s highest glacial lakes (4,580m) was a masterclass in risk management. The rugged terrain of the Rolwaling Valley demands extreme focus and physical preparation. The thin air and the sheer silence taught me the importance of "Composure under Pressure."</p>
-                    <p>Standing before the turquoise waters, you realize that nature doesn't negotiate; you must adapt. This adaptability is my core strength in the ever-changing tax laws of our country.</p>
+                    <p>Navigating the route to one of Nepal’s highest glacial lakes (4,580m) was a masterclass in risk management. The thin air and the sheer silence of the glacier taught me the importance of "Composure under Pressure"—a skill I apply every time I present a critical report to high-level directors. Nature doesn't negotiate; you must adapt.</p>
                 </div>
             </div>
 
-            <!-- Dhorpatan -->
             <div class="trek-row">
                 <div class="trek-text">
                     <h3>Dhorpatan Hunting Reserve</h3>
-                    <p>Exploring the unique high-altitude plateaus of Dhorpatan allowed me to find perspective away from the ledger. The vast wilderness and the strategic planning required to navigate this remote reserve reinforced my belief that a leader must find clarity in silence.</p>
-                    <p>The vast grasslands taught me about the "Big Picture"seeing the horizon before diving into the microscopic details of a balance sheet.</p>
+                    <p>Exploring the unique high-altitude plateaus of Dhorpatan allowed me to find perspective away from the ledger. The silence of the wilderness reinforced my belief that a leader must occasionally step away from the noise to find clarity. It is in these heights that I develop my most creative financial strategies and macro-visions.</p>
                 </div>
-                <div class="trek-photo"><img src="dhorpatan.jpg" alt="Dhorpatan"></div>
+                <div class="trek-photo"><img src="dhorpatan.jpg" alt="Dhorpatan Expedition"></div>
             </div>
 
-            <!-- Chaurikharka -->
             <div class="trek-row">
-                <div class="trek-photo"><img src="chaurikharka.jpg" alt="Chaurikharka"></div>
+                <div class="trek-photo"><img src="chaurikharka.jpg" alt="Chaurikharka Expedition"></div>
                 <div class="trek-text">
                     <h3>Chaurikharka Expedition</h3>
-                    <p>Entering the heart of the Khumbu region allowed me to witness the sheer grandeur of Everest. This journey was about stamina maintaining high performance over long periods. The thin air of the Everest region is a metaphor for the competitive top-tier of the CA profession.</p>
-                    <p>It taught me that reaching the base is just the beginning. The goal is always higher, and the preparation must be deeper than the climb itself.</p>
+                    <p>Entering the heart of the Khumbu region allowed me to witness the sheer grandeur of the Everest region. This journey was about stamina—maintaining high performance over long periods of time. The thin air is a metaphor for the competitive top-tier of the CA profession; only those who prepare deeper than the climb can reach the summit.</p>
                 </div>
             </div>
 
-            <div style="text-align: center; padding: 60px; background: var(--secondary-bg); border-radius: 50px; border: 1px solid var(--border); margin-bottom: 5rem;">
-                <p style="font-size: 1.3rem; font-weight: 600;">I have also explored the beauty of <strong>Mustang, Pokhara, Lumbini, and Ghandruk</strong>. Each destination adds a layer to my character, making me a well-rounded professional.</p>
+            <div style="text-align: center; padding: 60px; background: var(--secondary-bg); border-radius: 50px; margin-bottom: 5rem; border: 1px solid var(--border);">
+                <p style="font-size: 1.35rem; font-weight: 600;">I have also explored the diverse beauties of <strong>Mustang, Pokhara, Lumbini, and Ghandruk</strong>. Each destination adds a layer to my worldview, making me a more empathetic and well-rounded professional.</p>
             </div>
 
             <div class="dream-banner">
-                <i class="fa-solid fa-mountain-summit fa-5x" style="color: var(--accent); margin-bottom: 2rem;"></i>
-                <h2>Ultimate Dream: Everest Base Camp</h2>
-                <p>To stand at the foot of the world's highest peak would be the ultimate validation of my philosophy: through persistence and strategic effort, no summit is out of reach.</p>
+                <i class="fa-solid fa-mountain-sun fa-5x" style="color: var(--accent); margin-bottom: 2rem;"></i>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 2rem;">The Dream: Everest Base Camp</h2>
+                <p style="max-width: 900px; margin: 0 auto; font-size: 1.4rem; opacity: 0.9;">Reaching the Everest Base Camp (EBC) represents the absolute pinnacle of my resilience. It symbolizes the intersection of human ambition and natural grandeur. To stand at the foot of the world's highest peak would be the ultimate validation of my philosophy: that through persistence, discipline, and strategic effort, no summit is out of reach.</p>
             </div>
         </section>
 
-        <!-- Podcast Section (WITH YOUR LINK) -->
+        <!-- Section 6: Podcast -->
         <section id="podcast" class="podcast-section">
             <h2 class="section-title">Featured Podcast</h2>
             <div class="podcast-banner">
                 <div>
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--accent);">Dialogue on Strategy</h3>
-                    <p style="font-size: 1.2rem; line-height: 1.8;">In this episode, I share my journey from Baglung to becoming a rank holder, and my perspective on the future of finance leadership in Nepal.</p>
-                    
-                    <!-- REPLACE THE LINK BELOW WITH YOUR ACTUAL YOUTUBE/PODCAST URL -->
-                    <a href="https://youtu.be/JwlPTJAgg7M" class="btn-podcast" target="_blank">
+                    <p style="font-size: 1.2rem; line-height: 1.8;">In this featured episode, I share my journey from a government school in Baglung to the Top 3 Rank in Nepal. We discuss the mindset required to master the CA curriculum and the future of banking leadership.</p>
+                    <a href="https://www.youtube.com/watch?v=8V7C3Lp5F2Y" class="btn-podcast" target="_blank">
                         <i class="fa-solid fa-play"></i> Watch Episode
                     </a>
                 </div>
                 <div class="podcast-video-placeholder">
-                    <!-- Replace src with a podcast thumbnail if you have one -->
-                    <img src="podcast.jpg" alt="Podcast Preview" style="opacity: 0.4;">
+                    <img src="podcast.jpg" alt="Podcast Preview">
                     <i class="fa-solid fa-microphone-lines fa-4x" style="position: absolute; color: var(--accent);"></i>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1rem;">Let's Connect</h2>
             <div class="social-icons">
-                <a href="mailto:aryalshisir55@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/shishir-aryal-29264523a" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://www.facebook.com/shishir.aryal.55" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/shishiraryal33/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:aryalshisir55@gmail.com" title="Email Me"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/shishir-aryal-29264523a" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/shishir.aryal.55" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/shishiraryal33/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <p style="font-weight: 800; color: var(--accent); font-size: 1.5rem;">aryalshisir55@gmail.com</p>
-            <p style="opacity: 0.4; font-size: 0.85rem; margin-top: 60px; text-transform: uppercase;">&copy; 2026 SHISHIR ARYAL. KATHMANDU, NEPAL.</p>
+            <p style="font-weight: 800; color: var(--accent); font-size: 1.5rem; letter-spacing: 1px;">aryalshisir55@gmail.com</p>
+            <p style="opacity: 0.4; font-size: 0.85rem; margin-top: 60px; text-transform: uppercase; letter-spacing: 3px;">&copy; 2026 SHISHIR ARYAL. KATHMANDU, NEPAL.</p>
         </div>
     </footer>
 
     <script>
+        // THEME TOGGLE LOGIC
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
@@ -327,6 +355,22 @@
                 body.setAttribute('data-theme', 'dark');
                 icon.className = 'fa-solid fa-sun';
             }
+        }
+
+        // MODAL FUNCTIONS
+        function openModal() {
+            document.getElementById('articleModal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Disable scroll
+        }
+
+        function closeModal() {
+            document.getElementById('articleModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scroll
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('articleModal');
+            if (event.target == modal) closeModal();
         }
     </script>
 </body>
