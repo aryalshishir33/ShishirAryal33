@@ -248,7 +248,7 @@
                     <p><strong>Outsourcing:</strong> NRB holds the Board ultimately accountable for outsourcing. NIA requires cloud data centers to be registered within Nepal to ensure data sovereignty and domestic accountability.</p>
 
                     <h3>II. Cybersecurity and Cyber Resilience</h3>
-                    <p>Simple security is no longer enough. NRB’s Cyber Resilience Guidelines 2023 represent a shift toward "Resilience"—the ability to anticipate, withstand, and rapidly recover. The framework establishes a strict <strong>2-hour Recovery Time Objective (RTO)</strong> for resuming critical operations.</p>
+                    <p>Simple security is no longer enough. NRB's Cyber Resilience Guidelines 2023 represent a shift toward "Resilience"—the ability to anticipate, withstand, and rapidly recover. The framework establishes a strict <strong>2-hour Recovery Time Objective (RTO)</strong> for resuming critical operations.</p>
                     <p><strong>Five Pillars:</strong> The framework is built on Governance, Identification, Protection, Detection, and Response. Institutions must be able to complete settlement by the end of the day, even in extreme scenarios. NIA further mandates "Cyber Insurance" to minimize residual risks within the institution.</p>
 
                     <h3>III. Artificial Intelligence: Ethical Governance</h3>
@@ -277,7 +277,7 @@
                 <div class="trek-photo"><img src="tsho-rolpa.jpg" alt="Tsho Rolpa Expedition"></div>
                 <div class="trek-text">
                     <h3>Tsho Rolpa Glacier Trek</h3>
-                    <p>Navigating the route to one of Nepal’s highest glacial lakes (4,580m) was a masterclass in risk management. The thin air and the sheer silence of the glacier taught me the importance of "Composure under Pressure"—a skill I apply every time I present a critical report to high-level directors. Nature doesn't negotiate; you must adapt.</p>
+                    <p>Navigating the route to one of Nepal's highest glacial lakes (4,580m) was a masterclass in risk management. The thin air and the sheer silence of the glacier taught me the importance of "Composure under Pressure"—a skill I apply every time I present a critical report to high-level directors. Nature doesn't negotiate; you must adapt.</p>
                 </div>
             </div>
 
@@ -325,7 +325,7 @@
                 </div>
             </div>
         </section>
-                <!-- ⬇️ PASTE THE HTML CONTACT FORM HERE ⬇️ -->
+
         <!-- Section 7: Contact Form -->
         <section id="contact-form" style="margin: 100px 0;">
             <h2 class="section-title">Send Me a Message</h2>
@@ -358,7 +358,6 @@
                 <p id="formStatus" style="text-align: center; margin-top: 1rem; display: none; font-weight: 700;"></p>
             </div>
         </section>
-        <!-- ⬆️ END OF CONTACT FORM CODE ⬆️ -->
     </main>
 
     <!-- Footer -->
@@ -375,6 +374,12 @@
             <p style="opacity: 0.4; font-size: 0.85rem; margin-top: 60px; text-transform: uppercase; letter-spacing: 3px;">&copy; 2026 SHISHIR ARYAL. KATHMANDU, NEPAL.</p>
         </div>
     </footer>
+
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('uYN3CyTFgx1bU_l6x');
+    </script>
 
     <script>
         // THEME TOGGLE LOGIC
@@ -394,17 +399,52 @@
         // MODAL FUNCTIONS
         function openModal() {
             document.getElementById('articleModal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Disable scroll
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             document.getElementById('articleModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Enable scroll
+            document.body.style.overflow = 'auto';
         }
 
         window.onclick = function(event) {
             let modal = document.getElementById('articleModal');
             if (event.target == modal) closeModal();
+        }
+
+        // CONTACT FORM SUBMISSION
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const formStatus = document.getElementById('formStatus');
+
+            emailjs.send('service_abc123def', 'template_igkxcn5', {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                to_email: 'aryalshisir55@gmail.com'
+            })
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                formStatus.style.display = 'block';
+                formStatus.style.color = 'var(--accent)';
+                formStatus.textContent = '✓ Message sent successfully! I\'ll get back to you soon.';
+                document.getElementById('contactForm').reset();
+                
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            }, function(error) {
+                console.log('FAILED...', error);
+                formStatus.style.display = 'block';
+                formStatus.style.color = '#ef4444';
+                formStatus.textContent = '✗ Error sending message. Please try again or email directly.';
+            });
         }
     </script>
 </body>
